@@ -144,28 +144,60 @@
 // console.log(index)
 
 // 4-26
-class Point {
-  constructor(x, y) {
-    this.x = x;
-    this.y = y;//this指向实例化对象
-  }//私有属性
+// class Point {
+//   constructor(father) {
+//   this.father = father//this指向实例化对象
+//   }//私有属性
+//
+//   toString() {
+//     return '(' + this.x + ', ' + this.y + ')';
+//   }//原型方法,方法之间不能有逗号
+// }
+//
+// class Point2 extends Point{//Point2继承Point
+//     constructor(x,y,father){
+//       super(father)//子类必须要加super，才能定义私有属性
+//       this.x = x;
+//       this.y = y;
+//     }
+//     say(){
+//       console.log('point2 say')
+//     }
+// }
+// var p = new Point2(1,2,3);//p是实例化对象,要想调用father就要在super呼叫一下father
+// console.log(p);
+// p.toString()
+// p.say()
 
-  toString() {
-    return '(' + this.x + ', ' + this.y + ')';
-  }//原型方法,方法之间不能有逗号
+class Father{
+  _render(){
+    throw new Error('子类必须实现')
+    alert('子类必须实现')
+  }
+  rander(){
+    return(`
+      <ul>
+        ${this._render()}
+      </ul>
+  `)
+  }
 }
-
-class Point2 extends Point{//Point2继承Point
-    constructor(x,y){
-      super()//子类必须要加super，才能定义私有属性
-      this.x = x;
-      this.y = y;
-    }
-    say(){
-      console.log('point2 say')
-    }
+class Son extends Father{
+  _render(){
+    return(`
+      <li>aaa</li>
+      `)
+  }
 }
-var p = new Point2();//p是实例化对象
-console.log(p);
-p.toString()
-p.say()
+var son = new Son();
+console.log(son.render());
+document.body.innerHTML = son.render()
+/*
+  class [name] {}
+  class [name] extends [fathername] {}继承类
+  class [name] extends [fathername] {
+    constructor(){
+    super()
+  }
+}
+*/
