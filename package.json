@@ -1,0 +1,17 @@
+{
+  "name": "wumengyu",
+  "version": "1.0.0",
+  "description": "\u001b[A\u001b[A\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[u\u001b init",
+  "main": "index.js",
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "jquery": "^3.2.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "ttt": "node -v"
+  },
+  "author": "wumengyu",
+  "license": "ISC"
+}
